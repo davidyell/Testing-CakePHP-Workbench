@@ -14,8 +14,12 @@ class Tag extends AppModel {
  */
 	public $displayField = 'title';
 
-
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
+   public $actsAs = array(
+        'Listing.Listable' => array(
+            'relatedModelName' => 'Category',
+            'relatedModelDisplayField' => 'title',
+        )
+    );
 
 /**
  * belongsTo associations

@@ -6,6 +6,11 @@ App::uses('AppController', 'Controller');
  * @property Tag $Tag
  */
 class TagsController extends AppController {
+    
+    public function tags() {
+        $tags = $this->Tag->find('listing');
+        $this->set('tags', $tags);
+    }
 
 /**
  * index method
