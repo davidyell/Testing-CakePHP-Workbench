@@ -41,7 +41,7 @@
 </div>
 <div class="related">
 	<h3><?php echo __('Related Lessons'); ?></h3>
-	<?php if (!empty($pupil['Lesson'])): ?>
+	<?php if (!empty($pupil['LessonsPupil'])): ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php echo __('Id'); ?></th>
@@ -52,16 +52,16 @@
 	</tr>
 	<?php
 		$i = 0;
-		foreach ($pupil['Lesson'] as $lesson): ?>
+		foreach ($pupil['LessonsPupil'] as $lesson): ?>
 		<tr>
-			<td><?php echo $lesson['id']; ?></td>
-			<td><?php echo $lesson['name']; ?></td>
-			<td><?php echo $lesson['created']; ?></td>
-			<td><?php echo $lesson['modified']; ?></td>
+			<td><?php echo $lesson['Lesson']['id']; ?></td>
+			<td><?php echo $lesson['Lesson']['name']; ?></td>
+			<td><?php echo $lesson['Lesson']['created']; ?></td>
+			<td><?php echo $lesson['Lesson']['modified']; ?></td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'lessons', 'action' => 'view', $lesson['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'lessons', 'action' => 'edit', $lesson['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'lessons', 'action' => 'delete', $lesson['id']), null, __('Are you sure you want to delete # %s?', $lesson['id'])); ?>
+				<?php echo $this->Html->link(__('View'), array('controller' => 'lessons', 'action' => 'view', $lesson['Lesson']['id'])); ?>
+				<?php echo $this->Html->link(__('Edit'), array('controller' => 'lessons', 'action' => 'edit', $lesson['Lesson']['id'])); ?>
+				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'lessons', 'action' => 'delete', $lesson['Lesson']['id']), null, __('Are you sure you want to delete # %s?', $lesson['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>

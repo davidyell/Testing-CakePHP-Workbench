@@ -14,14 +14,15 @@ class Pupil extends AppModel {
  */
 	public $displayField = 'name';
 
-
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
-
+   public $hasMany = array(
+       'LessonsPupil'
+   );
+   
 /**
  * hasAndBelongsToMany associations
  *
  * @var array
- */
+ *
 	public $hasAndBelongsToMany = array(
 		'Lesson' => array(
 			'className' => 'Lesson',
@@ -39,5 +40,7 @@ class Pupil extends AppModel {
 			'insertQuery' => ''
 		)
 	);
+ * 
+ */
 
 }

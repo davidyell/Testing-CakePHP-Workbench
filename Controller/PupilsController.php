@@ -34,12 +34,21 @@ class PupilsController extends AppController {
  * @return void
  */
 	public function view($id = null) {
-		if (!$this->Pupil->exists($id)) {
-			throw new NotFoundException(__('Invalid pupil'));
-		}
-		$options = array('conditions' => array('Pupil.' . $this->Pupil->primaryKey => $id));
-		$this->set('pupil', $this->Pupil->find('first', $options));
-	}
+        if (!$this->Pupil->exists($id)) {
+            throw new NotFoundException(__('Invalid pupil'));
+        }
+        $options = array(
+            'conditions' => array(
+                'Pupil.' . $this->Pupil->primaryKey => $id
+            ),
+            'contain' => array(
+                'LessonsPupil' => array(
+                    'Lesson'
+                )
+            )
+        );
+        $this->set('pupil', $this->Pupil->find('first', $options));
+    }
 
 /**
  * add method
@@ -48,8 +57,6 @@ class PupilsController extends AppController {
  */
 	public function add() {
 		if ($this->request->is('post')) {
-         var_dump($this->request->data);
-         exit;
 			$this->Pupil->create();
 			if ($this->Pupil->save($this->request->data)) {
 				$this->Session->setFlash(__('The pupil has been saved'));
@@ -74,7 +81,11 @@ class PupilsController extends AppController {
 			throw new NotFoundException(__('Invalid pupil'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Pupil->save($this->request->data)) {
+          
+          var_dump($this->request->data);
+          exit;
+          
+			if ($this->Pupil->saveAll($this->request->data)) {
 				$this->Session->setFlash(__('The pupil has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -84,7 +95,7 @@ class PupilsController extends AppController {
 			$options = array('conditions' => array('Pupil.' . $this->Pupil->primaryKey => $id));
 			$this->request->data = $this->Pupil->find('first', $options);
 		}
-		$lessons = $this->Pupil->Lesson->find('list');
+		$lessons = $this->Pupil->LessonsPupil->Lesson->find('list');
 		$this->set(compact('lessons'));
 	}
 
