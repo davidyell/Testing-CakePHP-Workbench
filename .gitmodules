@@ -7,3 +7,6 @@
 [submodule "Plugin/Linkable"]
 	path = Plugin/Linkable
 	url = https://github.com/lorenzo/linkable.git
+[submodule "Plugin/Statusable"]
+	path = Plugin/Statusable
+	url = https://github.com/davidyell/CakePHP-Statusable.git
