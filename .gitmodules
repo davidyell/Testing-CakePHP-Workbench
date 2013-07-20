@@ -10,3 +10,6 @@
 [submodule "Plugin/Statusable"]
 	path = Plugin/Statusable
 	url = https://github.com/davidyell/CakePHP-Statusable.git
+[submodule "Plugin/Utils"]
+	path = Plugin/Utils
+	url = https://github.com/davidyell/utils.git

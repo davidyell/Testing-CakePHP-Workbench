@@ -6,6 +6,8 @@
 		echo $this->Form->input('id');
 		echo $this->Form->input('username');
 		echo $this->Form->input('email');
+		echo $this->Form->input('status_id');
+		echo $this->Form->input('deleted_date');
 		echo $this->Form->input('Group');
 	?>
 	</fieldset>
