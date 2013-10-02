@@ -13,3 +13,6 @@
 [submodule "Plugin/Utils"]
 	path = Plugin/Utils
 	url = https://github.com/davidyell/utils.git
+[submodule "Plugin/ClearCache"]
+	path = Plugin/ClearCache
+	url = https://github.com/davidyell/clear_cache.git
