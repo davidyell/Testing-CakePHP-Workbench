@@ -6,6 +6,7 @@
 		echo $this->Form->input('id');
 		echo $this->Form->input('name');
 		echo $this->Form->input('student_number');
+		echo $this->Form->input('status_id');
 		echo $this->Form->input('Lesson.Lesson', array('type' => 'select', 'multiple' => true));
 	?>
 	</fieldset>

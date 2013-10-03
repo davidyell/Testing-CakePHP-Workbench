@@ -96,6 +96,7 @@ class PupilsController extends AppController {
 			$this->request->data = $this->Pupil->find('first', $options);
 		}
 		$lessons = $this->Pupil->LessonsPupil->Lesson->find('list');
+		$this->set('statuses', $this->Pupil->getStatuses());
 		$this->set(compact('lessons'));
 	}
 

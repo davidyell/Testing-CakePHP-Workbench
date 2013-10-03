@@ -150,6 +150,7 @@ class UsersController extends AppController {
 			}
 		}
 		$groups = $this->User->Group->find('list');
+		$this->set('statuses', $this->User->getStatuses());
 		$this->set(compact('groups'));
 	}
 
@@ -176,6 +177,7 @@ class UsersController extends AppController {
 			$this->request->data = $this->User->find('first', $options);
 		}
 		$groups = $this->User->Group->find('list');
+		$this->set('statuses', $this->User->getStatuses());
 		$this->set(compact('groups'));
 	}
 
